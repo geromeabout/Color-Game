@@ -233,8 +233,7 @@ namespace color.ViewModel
             LowerRight = Color.FromArgb(colors[index9]);
         }
 
-        public
-        private async void Win()
+       private async void Win()
         {
             LabelText = "You Win!";
             await Task.Delay(2000); // Wait for 2 seconds
