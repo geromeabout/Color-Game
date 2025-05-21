@@ -1,0 +1,140 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:color.ViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="color.MainPage"
+             Title="Color Game">
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+    <Grid Margin="10,0,10,0"
+          ColumnSpacing="10"
+          RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Text="{Binding LabelText}"
+               Grid.ColumnSpan="3"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+        <BoxView Color="{Binding UpperLeft}"
+                 Grid.Row="1"
+                     CornerRadius="10"
+                     MinimumHeightRequest="120"
+                     MinimumWidthRequest="120"/>
+            <Label Text="Upper left"
+               Grid.Row="1"
+               HorizontalOptions="Start"
+               VerticalOptions="Start" />
+            <BoxView 
+                     Grid.Column="1"
+                 Grid.Row="1"
+                 Color="{Binding UpperCenter}"
+                     CornerRadius="10"
+                     MinimumHeightRequest="120"
+                     MinimumWidthRequest="120"/>
+            <Label Grid.Column="1"
+               Grid.Row="1"
+               Text="Upper center"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"/>
+            <BoxView Grid.Column="2"
+                 Grid.Row="1"
+                 Color="{Binding UpperRight}"
+                     CornerRadius="10"
+                     MinimumHeightRequest="120"
+                     MinimumWidthRequest="120"/>
+            <Label Grid.Column="2"
+               Grid.Row="1"
+               Text="Upper right"
+               HorizontalOptions="End"
+               VerticalOptions="Start" />
+            <BoxView Grid.Row="2"
+                 Color="{Binding CenterLeft}"
+                     CornerRadius="10"
+                     MinimumHeightRequest="120"
+                     MinimumWidthRequest="120"/>
+            <Label Grid.Row="2"
+               Text="Center left"
+               HorizontalOptions="Start"
+               VerticalOptions="Center" />
+            <BoxView Grid.Row="2"
+                 Grid.Column="1"
+                 Color="{Binding CenterCenter}"
+                     CornerRadius="10"
+                     MinimumHeightRequest="120"
+                     MinimumWidthRequest="120"/>
+            <Label Grid.Row="2"
+               Grid.Column="1"
+               Text="Center center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            <BoxView Grid.Row="2"
+                 Grid.Column="2"
+                 Color="{Binding CenterRight}"
+                     CornerRadius="10"
+                     MinimumHeightRequest="120"
+                     MinimumWidthRequest="120"/>
+            <Label Grid.Row="2"
+               Grid.Column="2"
+               Text="Center right"
+               HorizontalOptions="End"
+               VerticalOptions="Center" />
+            <BoxView Grid.Row="3"
+                 Color="{Binding LowerLeft}"
+                     CornerRadius="10"
+                     MinimumHeightRequest="120"
+                     MinimumWidthRequest="120"/>
+            <Label Grid.Row="3"
+               Text="Lower left"
+               HorizontalOptions="Start"
+               VerticalOptions="End" />
+            <BoxView Grid.Row="3"
+                 Grid.Column="1"
+                 Color="{Binding LowerCenter}"
+                     CornerRadius="10"
+                     MinimumHeightRequest="120"
+                     MinimumWidthRequest="120"/>
+            <Label Grid.Row="3"
+               Grid.Column="1"
+               Text="Lower center"
+               HorizontalOptions="Center"
+               VerticalOptions="End" />
+            <BoxView Grid.Row="3"
+                 Grid.Column="2"
+                 Color="{Binding LowerRight}"
+                     CornerRadius="10"
+                     MinimumHeightRequest="120"
+                     MinimumWidthRequest="120"/>
+            <Label Grid.Row="3"
+               Grid.Column="2"
+               Text="Lower right"
+               HorizontalOptions="End"
+               VerticalOptions="End" />
+        <Button Grid.Row="4"
+               Grid.Column="1"
+               Text="SPIN"
+                CornerRadius="60"
+                HeightRequest="100"
+                WidthRequest="100"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+                Command="{Binding SpinCommand}"/>
+        <Switch Grid.Row="4"
+                Grid.Column="2" 
+                IsToggled="{Binding IsToggled, Mode=TwoWay}">
+            <Switch.Behaviors>
+                <toolkit:EventToCommandBehavior EventName="Toggled" Command="{Binding ToggleCommand}" />
+            </Switch.Behaviors>
+        </Switch>
+    </Grid>
+</ContentPage>
